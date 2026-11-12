@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: ./backend
+    environment:
+      ARES_ENV: ${ARES_ENV:-development}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-}
+      STT_PROVIDER: ${STT_PROVIDER:-unconfigured}
+      STT_API_KEY: ${STT_API_KEY:-}
+      TTS_PROVIDER: ${TTS_PROVIDER:-unconfigured}
+      TTS_API_KEY: ${TTS_API_KEY:-}
+    ports:
+      - "${ARES_BIND_ADDRESS:-127.0.0.1}:${ARES_PORT:-8000}:8000"
+    restart: unless-stopped
