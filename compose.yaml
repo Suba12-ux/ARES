@@ -1,7 +1,6 @@
 services:
   api:
-    build:
-      context: ./backend
+    image: ${ARES_IMAGE:-ghcr.io/suba12-ux/ares:latest}
     environment:
       ARES_ENV: ${ARES_ENV:-development}
       DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
